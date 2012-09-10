@@ -1,0 +1,12 @@
+youtube.com:
+  command: 'youtube-dl'
+  option:  '-t'
+github.com:
+  command: 'hub'
+  option:  'clone'
+raw.github.com:
+  command: 'curl'
+  option:  '-LO'
+default:
+  command: 'wget'
+  option:  ''
