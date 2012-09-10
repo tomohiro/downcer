@@ -14,7 +14,7 @@ Usage
 
 1. Configuretion
 
-        $ vi ~/downcerrc
+        $ vi ~/.downcerrc
         youtube.com:
           command: 'youtube-dl'
           option:  '-t'
