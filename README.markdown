@@ -12,15 +12,19 @@ TODO
 Usage
 -------------------------------------------------------------------------------
 
-1. Configuretion
+1. Configuretion (Format is YAML)
 
         $ vi ~/.downcerrc
+        ---
         youtube.com:
           command: 'youtube-dl'
           option:  '-t'
         github.com:
           command: 'hub'
           option:  'clone'
+        default:
+          command: 'wget'
+          option: ''
 
 2. Run `downcer`
 
