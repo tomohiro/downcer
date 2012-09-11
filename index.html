@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Downcer by Tomohiro</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Downcer</h1>
+        <p>Command line download tools helper</p>
+        <p class="view"><a href="https://github.com/Tomohiro/downcer">View the Project on GitHub <small>Tomohiro/downcer</small></a></p>
+        <ul>
+          <li><a href="https://github.com/Tomohiro/downcer/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Tomohiro/downcer/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Tomohiro/downcer">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Downcer</h1>
+
+<p><a href="https://codeclimate.com/github/Tomohiro/downcer"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
+
+<p>Command line download tool helper</p>
+
+<hr><h2>Requirements</h2>
+
+<ul>
+<li>Ruby 1.9.X</li>
+<li>curl / wget</li>
+</ul><h2>Installation</h2>
+
+<p><a href="http://rubygems.org">RubyGems</a></p>
+
+<pre><code>gem install downcer
+</code></pre>
+
+<p><a href="http://tomohiro.github.com/bundlizer">Bundlizer</a></p>
+
+<pre><code>$ bundlizer install Tomohiro/downcer
+</code></pre>
+
+<h2>Usage</h2>
+
+<ol>
+<li>
+<p>Configuretion (Format is YAML)</p>
+
+<p>Edit <code>.downcerrc</code>, and put your home direcotry.</p>
+
+<pre><code>$ vi ~/.downcerrc
+---
+youtube.com:
+  command: youtube-dl
+  option:  -t
+raw.github.com
+  command wget
+github.com:
+  command: hub
+  option:  clone
+my.private.server.local:
+  command: wget
+  option:  --http-user=username --http-password=password
+default:
+  command: curl
+  option: -LO
+</code></pre>
+</li>
+<li>
+<p>Run <code>downcer</code></p>
+
+<p>YouTube (<a href="http://rg3.github.com/youtube-dl">youtube-dl</a>)</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>downcer <span class="s1">'http://www.youtube.com/watch?v=QH2-TGUlwu4'</span>
+Use <span class="sb">`</span>youtube-dl<span class="sb">`</span>
+--
+<span class="o">[</span>youtube<span class="o">]</span> Setting language
+<span class="o">[</span>youtube<span class="o">]</span> QH2-TGUlwu4: Downloading video webpage
+<span class="o">[</span>youtube<span class="o">]</span> QH2-TGUlwu4: Downloading video info webpage
+<span class="o">[</span>youtube<span class="o">]</span> QH2-TGUlwu4: Extracting video information
+<span class="o">[</span>download<span class="o">]</span> Destination: Nyan_Cat_original-QH2-TGUlwu4.flv
+<span class="o">[</span>download<span class="o">]</span> 100.0% of 13.93M at    1.90M/s ETA 00:00
+</pre></div>
+
+<p>GitHub Repository</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>downcer https://github.com/holman/spark
+Use <span class="sb">`</span>hub<span class="sb">`</span>
+--
+Cloning into <span class="s1">'spark'</span>...
+remote: Counting objects: 193, <span class="k">done</span>.
+remote: Compressing objects: 100% <span class="o">(</span>105/105<span class="o">)</span>, <span class="k">done</span>.
+remote: Total 193 <span class="o">(</span>delta 99<span class="o">)</span>, reused 174 <span class="o">(</span>delta 85<span class="o">)</span>
+Receiving objects: 100% <span class="o">(</span>193/193<span class="o">)</span>, 31.69 KiB, <span class="k">done</span>.
+Resolving deltas: 100% <span class="o">(</span>99/99<span class="o">)</span>, <span class="k">done</span>.
+</pre></div>
+
+<p>Private basic authentication file server</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>downcer http://my.private.server.local/movies/sample.mp4
+Use <span class="sb">`</span>wget<span class="sb">`</span>
+--
+--2012-09-11 21:19:11--  http://my.private.server.local/movies/sample.mp4
+Resolving my.private.server.local... 10.0.1.2
+Connecting to my.private.server.local|10.0.1.2|:80... connected.
+HTTP request sent, awaiting response... 401 Unauthorized
+Reusing existing connection to my.private.server.local:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 208737764 <span class="o">(</span>199M<span class="o">)</span> <span class="o">[</span>text/plain<span class="o">]</span>
+Saving to: ‘sample.m4v’
+100%<span class="o">[=================================================================</span>&gt;<span class="o">]</span> 208,737,764 2.49MB/s   in 98s
+
+2012-09-11 21:20:49 <span class="o">(</span>2.04 MB/s<span class="o">)</span> - ‘sample.m4v’ saved <span class="o">[</span>208737764/208737764<span class="o">]</span>
+</pre></div>
+</li>
+</ol><h2>LICENSE</h2>
+
+<p>© 2012 Tomohiro, TAIRA.
+This project is licensed under the MIT license.
+See LICENSE for details.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/Tomohiro">Tomohiro</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
