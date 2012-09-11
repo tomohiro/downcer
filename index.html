@@ -27,9 +27,7 @@
         </ul>
       </header>
       <section>
-        <h1>Downcer</h1>
-
-<p><a href="https://codeclimate.com/github/Tomohiro/downcer"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
+        <p><a href="https://codeclimate.com/github/Tomohiro/downcer"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
 
 <p>Command line download tool helper</p>
 
@@ -63,7 +61,7 @@
 youtube.com:
   command: youtube-dl
   option:  -t
-raw.github.com
+raw.github.com:
   command wget
 github.com:
   command: hub
@@ -94,7 +92,7 @@ Use <span class="sb">`</span>youtube-dl<span class="sb">`</span>
 
 <p>GitHub Repository</p>
 
-<div class="highlight"><pre><span class="nv">$ </span>downcer https://github.com/holman/spark
+<div class="highlight"><pre><span class="nv">$ </span>downcer <span class="s1">'https://github.com/holman/spark'</span>
 Use <span class="sb">`</span>hub<span class="sb">`</span>
 --
 Cloning into <span class="s1">'spark'</span>...
@@ -107,7 +105,7 @@ Resolving deltas: 100% <span class="o">(</span>99/99<span class="o">)</span>, <s
 
 <p>Private basic authentication file server</p>
 
-<div class="highlight"><pre><span class="nv">$ </span>downcer http://my.private.server.local/movies/sample.mp4
+<div class="highlight"><pre><span class="nv">$ </span>downcer <span class="s1">'http://my.private.server.local/movies/sample.mp4'</span>
 Use <span class="sb">`</span>wget<span class="sb">`</span>
 --
 --2012-09-11 21:19:11--  http://my.private.server.local/movies/sample.mp4
@@ -123,7 +121,16 @@ Saving to: ‘sample.m4v’
 2012-09-11 21:20:49 <span class="o">(</span>2.04 MB/s<span class="o">)</span> - ‘sample.m4v’ saved <span class="o">[</span>208737764/208737764<span class="o">]</span>
 </pre></div>
 </li>
-</ol><h2>LICENSE</h2>
+</ol><h2>Tips</h2>
+
+<p>Easy to use settings, <code>alias d=downcer</code></p>
+
+<div class="highlight"><pre><span class="nv">$ </span>d <span class="s1">'http://www.youtube.com/watch?v=QH2-TGUlwu4'</span>
+Use <span class="sb">`</span>youtube-dl<span class="sb">`</span>
+..snip..
+</pre></div>
+
+<h2>LICENSE</h2>
 
 <p>© 2012 Tomohiro, TAIRA.
 This project is licensed under the MIT license.
