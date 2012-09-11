@@ -41,7 +41,7 @@ Usage
         youtube.com:
           command: youtube-dl
           option:  -t
-        raw.github.com
+        raw.github.com:
           command wget
         github.com:
           command: hub
@@ -101,6 +101,18 @@ Usage
 
     2012-09-11 21:20:49 (2.04 MB/s) - ‘sample.m4v’ saved [208737764/208737764]
     ```
+
+
+Tips
+--------------------------------------------------------------------------------
+
+Easy to use settings, `alias d=downcer`
+
+```sh
+$ d 'http://www.youtube.com/watch?v=QH2-TGUlwu4'
+Use `youtube-dl`
+..snip..
+```
 
 
 LICENSE
