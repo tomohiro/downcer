@@ -1,12 +1,27 @@
 Downcer
 ================================================================================
 
-Command line download tools helper
+Command line download tool helper
+
+
+Requirements
+-------------------------------------------------------------------------------
+
+- Ruby 1.9.X
+- curl / wget
+
 
 Installation
 -------------------------------------------------------------------------------
 
-TODO
+[RubyGems](http://rubygems.org)
+
+    gem install downcer
+
+
+[Bundlizer](http://tomohiro.github.com/bundlizer)
+
+    $ bundlizer install Tomohiro/downcer
 
 
 Usage
@@ -14,17 +29,21 @@ Usage
 
 1. Configuretion (Format is YAML)
 
+    Edit `.downcerrc`, and put your home direcotry.
+
         $ vi ~/.downcerrc
         ---
         youtube.com:
-          command: 'youtube-dl'
-          option:  '-t'
+          command: youtube-dl
+          option:  -t
+        raw.github.com
+          command wget
         github.com:
-          command: 'hub'
-          option:  'clone'
+          command: hub
+          option:  clone
         default:
-          command: 'wget'
-          option: ''
+          command: curl
+          option: -LO
 
 2. Run `downcer`
 
