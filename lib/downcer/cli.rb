@@ -10,7 +10,7 @@ module Downcer
     end
 
     def initialize(url)
-      @url = URI.parse(url)
+      @url = URI.parse(URI.encode(url))
       @config = get_config(@url)
     rescue URI::InvalidURIError => e
       abort 'Usage: downcer <url>'
